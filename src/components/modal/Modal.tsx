@@ -3,8 +3,7 @@ import Form from "../form/Form";
 export default function Modal() {
   return (
     <div>
-      <div className="fixed inset-0 bg-black opacity-70"></div>
-      <div className="fixed inset-0 flex items-center justify-center">
+      <div className="fixed inset-0 bg-zinc-800 flex items-center justify-center">
         <div className="w-[20rem] h-[30rem] bg-white px-5 py-8 space-y-5 rounded-md">
           <div className="flex flex-col items-center space-y-2">
             <img
