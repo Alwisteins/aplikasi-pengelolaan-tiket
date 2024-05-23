@@ -1,10 +1,13 @@
 import Form from "../form/Form";
+import { Role } from "../../pages/login/Login";
 
-export default function Modal({
-  onLogin,
-}: {
+interface ModalProps {
   onLogin: (token: boolean) => void;
-}) {
+  setRole: React.Dispatch<React.SetStateAction<Role>>;
+}
+
+
+export default function Modal({onLogin, setRole}: ModalProps) {
   return (
     <div>
       <div className="fixed inset-0 bg-zinc-800 flex items-center justify-center">
@@ -26,7 +29,7 @@ export default function Modal({
               Enter your email and password below
             </p>
           </div>
-          <Form onLogin={onLogin} />
+          <Form onLogin={onLogin} setRole={setRole} />
           <div>
             <p className="text-center text-sm text-slate-400">
               Don't have an account?{" "}

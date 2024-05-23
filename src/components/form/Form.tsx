@@ -3,12 +3,14 @@ import { Icon } from "react-icons-kit";
 import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { users } from "../../data/data";
+import { Role } from "../../pages/login/Login";
 
-export default function Form({
-  onLogin,
-}: {
+interface FormProps {
   onLogin: (token: boolean) => void;
-}) {
+  setRole: React.Dispatch<React.SetStateAction<Role>>;
+}
+
+export default function Form({ onLogin, setRole }: FormProps) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [icon, setIcon] = useState(eyeOff);
@@ -27,12 +29,13 @@ export default function Form({
       (user) => user.email == email && user.password == password
     );
 
-    if (!user) {
-      setError("Invalid email or password.");
-      onLogin(false);
-    } else {
+    if (user) {
       setError("");
       onLogin(true);
+      setRole(user.role as Role);
+    } else {
+      setError("Invalid email or password.");
+      onLogin(false);
     }
   };
 
