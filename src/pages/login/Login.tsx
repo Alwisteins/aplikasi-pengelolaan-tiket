@@ -1,10 +1,12 @@
-import { useState } from "react";
 import Modal from "../../components/modal/Modal";
 import { Navigate } from "react-router-dom";
 
-export default function Login() {
-  const [auth, setAuth] = useState({ token: false });
+interface AuthProps {
+  auth: { token: boolean };
+  setAuth: (token: { token: boolean }) => void;
+}
 
+export default function Login({ auth, setAuth }: AuthProps) {
   const handleLogin = (token: boolean) => setAuth({ token });
 
   return !auth.token ? (
