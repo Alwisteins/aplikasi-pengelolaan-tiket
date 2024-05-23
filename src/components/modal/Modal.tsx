@@ -1,6 +1,10 @@
 import Form from "../form/Form";
 
-export default function Modal() {
+export default function Modal({
+  onLogin,
+}: {
+  onLogin: (token: boolean) => void;
+}) {
   return (
     <div>
       <div className="fixed inset-0 bg-zinc-800 flex items-center justify-center">
@@ -22,7 +26,7 @@ export default function Modal() {
               Enter your email and password below
             </p>
           </div>
-          <Form />
+          <Form onLogin={onLogin} />
           <div>
             <p className="text-center text-sm text-slate-400">
               Don't have an account?{" "}

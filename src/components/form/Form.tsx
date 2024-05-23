@@ -4,7 +4,11 @@ import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { users } from "../../data/data";
 
-export default function Form() {
+export default function Form({
+  onLogin,
+}: {
+  onLogin: (token: boolean) => void;
+}) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [icon, setIcon] = useState(eyeOff);
@@ -23,7 +27,13 @@ export default function Form() {
       (user) => user.email == email && user.password == password
     );
 
-    !user ? setError("Invalid email or password.") : setError("");
+    if (!user) {
+      setError("Invalid email or password.");
+      onLogin(false);
+    } else {
+      setError("");
+      onLogin(true);
+    }
   };
 
   const handleToggle = () => {
