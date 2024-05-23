@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import ProtectedRoutes from "./routes/ProtectedRoutes";
 import Login from "./pages/login/Login";
 import Overview from "./pages/overview/Overview";
 
@@ -11,7 +12,9 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Login auth={auth} setAuth={setAuth} />} />
-      <Route path="/overview" element={<Overview />} />
+      <Route element={<ProtectedRoutes auth={auth} />}>
+        <Route path="/overview" element={<Overview />} />
+      </Route>
     </Routes>
   );
 }
