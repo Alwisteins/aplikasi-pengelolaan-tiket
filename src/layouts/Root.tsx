@@ -9,7 +9,7 @@ export default function RootLayout({
   return (
     <div className="flex">
       <Sidebar />
-      <main className="absolute right-0 -z-10  w-[82vw]">{children}</main>
+      <main className="absolute right-0 w-[82vw]">{children}</main>
     </div>
   );
 }
