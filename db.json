@@ -1,0 +1,8 @@
+{
+  "tickets": [
+    { "Unresolved": 60 },
+    { "Overdue": 16 },
+    { "Open": 43 },
+    { "On hold": 64 }
+  ]
+}
