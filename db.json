@@ -1,8 +1,8 @@
 {
   "tickets": [
-    { "Unresolved": 60 },
-    { "Overdue": 16 },
-    { "Open": 43 },
-    { "On hold": 64 }
+    { "unresolved": 60 },
+    { "overdue": 16 },
+    { "open": 43 },
+    { "onHold": 64 }
   ]
 }
