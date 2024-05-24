@@ -5,7 +5,7 @@ import { navLinks, navMenu } from "./navLinks";
 export default function Sidebar() {
   const [active, setActive] = useState("");
   return (
-    <div className="py-6 w-56 h-screen fixed space-y-12 bg-gray-700 text-gray-300">
+    <div className="py-6 w-[15rem] h-screen fixed space-y-12 bg-gray-700 text-gray-300">
       <div className="flex items-center justify-center space-x-2">
         <img src="/letter-d.png" alt="dashboard icon" width={40} height={40} />
         <h1 className="text-lg font-semibold text-slate-400">Dashboard Kit</h1>
