@@ -1,6 +1,6 @@
 interface CardProps {
   title: string;
-  total: number | undefined;
+  total: number | string | undefined;
 }
 
 export function Card({ title, total }: CardProps) {
