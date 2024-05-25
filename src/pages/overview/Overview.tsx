@@ -1,38 +1,39 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
 import Topbar from "../../components/topbar/Topbar";
 import { Card, CardLong } from "../../components/card/Card";
 import Chart from "../../components/chart/Chart";
 import Task from "../../components/task/Task";
 
-type Unresolved = { unresolved: number; id: string };
-type Overdue = { overdue: number; id: string };
-type Open = { open: number; id: string };
-type OnHold = { onHold: number; id: string };
+const cardData = [
+  { title: "Unresolved", total: 60 },
+  { title: "Overdue", total: 16 },
+  { title: "Open", total: 43 },
+  { title: "On hold", total: 64 },
+];
 
-type TicketData = [Unresolved, Overdue, Open, OnHold];
+const cardLongData = [
+  { title: "Resolved", total: 449 },
+  { title: "Received", total: 426 },
+  { title: "Average first response time", total: "33m" },
+  { title: "Average response time", total: "3h 8m" },
+  { title: "Resolution with SLA", total: "94%" },
+];
+
+const unresolvedTicketsData = [
+  { title: "Waiting on Feature Request", total: 4238 },
+  { title: "Awaiting Customers Response", total: 1005 },
+  { title: "Awaiting Developer Fix", total: 914 },
+  { title: "Pending", total: 281 },
+];
 
 export default function Overview() {
-  const [tickets, setTickets] = useState<TicketData | null>(null);
-
-  const url = "http://localhost:3000/tickets";
-
-  useEffect(() => {
-    axios.get(url).then((response) => {
-      console.log(response.data);
-      setTickets(response.data);
-    });
-  }, []);
-
   return (
     <div className="p-5 h-full space-y-12 bg-[#f7fafe]">
       <Topbar page="Overview" />
       <div className="space-y-5">
         <div className="flex justify-center space-x-14">
-          <Card title="Unresolved" total={tickets?.[0].unresolved} />
-          <Card title="Overdue" total={tickets?.[1].overdue} />
-          <Card title="Open" total={tickets?.[2].open} />
-          <Card title="On hold" total={tickets?.[3].onHold} />
+          {cardData.map((data) => (
+            <Card title={data.title} total={data.total} />
+          ))}
         </div>
         <div>
           <div className="flex rounded-sm bg-white">
@@ -48,11 +49,9 @@ export default function Overview() {
               </div>
             </div>
             <div>
-              <CardLong title="Resolved" total={449} />
-              <CardLong title="Received" total={426} />
-              <CardLong title="Average first response time" total="33m" />
-              <CardLong title="Average response time" total="3h 8m" />
-              <CardLong title="Resolution with SLA" total="94%" />
+              {cardLongData.map((data) => (
+                <CardLong title={data.title} total={data.total} />
+              ))}
             </div>
           </div>
         </div>
@@ -68,22 +67,15 @@ export default function Overview() {
               <button className="text-blue-700">View details</button>
             </div>
             <div>
-              <div className="flex justify-between p-3 border-b-2 border-slate-200">
-                <p className="font-medium">Waiting on Feature Request</p>
-                <p className="font-medium text-slate-400">4238</p>
-              </div>
-              <div className="flex justify-between p-3 border-b-2 border-slate-200">
-                <p className="font-medium">Awaiting Customers Response</p>
-                <p className="font-medium text-slate-400">1005</p>
-              </div>
-              <div className="flex justify-between p-3 border-b-2 border-slate-200">
-                <p className="font-medium">Awaiting Developer Fix</p>
-                <p className="font-medium text-slate-400">914</p>
-              </div>
-              <div className="flex justify-between p-3 border-b-2 border-slate-200">
-                <p className="font-medium">Pending</p>
-                <p className="font-medium text-slate-400">281</p>
-              </div>
+              {unresolvedTicketsData.map((data, index) => (
+                <div
+                  key={index}
+                  className="flex justify-between p-3 border-b-2 border-slate-200"
+                >
+                  <p className="font-medium">{data.title}</p>
+                  <p className="font-medium text-slate-400">{data.total}</p>
+                </div>
+              ))}
             </div>
           </div>
           <Task />
