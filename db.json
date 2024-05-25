@@ -1,8 +1,40 @@
 {
   "tickets": [
-    { "unresolved": 60 },
-    { "overdue": 16 },
-    { "open": 43 },
-    { "onHold": 64 }
+    {
+      "unresolved": 60,
+      "id": "b863"
+    },
+    {
+      "overdue": 16,
+      "id": "ffde"
+    },
+    {
+      "open": 43,
+      "id": "d828"
+    },
+    {
+      "onHold": 64,
+      "id": "ce0b"
+    }
+  ],
+  "tasks": [
+    {
+      "name": "Finish ticket update",
+      "status": "urgent",
+      "isFinish": false,
+      "id": "a0a4"
+    },
+    {
+      "name": "Create new ticket example",
+      "status": "new",
+      "isFinish": false,
+      "id": "9b26"
+    },
+    {
+      "name": "Update ticket report",
+      "status": "default",
+      "isFinish": true,
+      "id": "8858"
+    }
   ]
 }
