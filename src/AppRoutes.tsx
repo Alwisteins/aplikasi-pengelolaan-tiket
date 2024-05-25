@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import ProtectedRoutes from "./routes/ProtectedRoutes";
 import Login from "./pages/login/Login";
 import Overview from "./pages/overview/Overview";
+import Tickets from "./pages/tickets/Tickets";
 
 type Auth = { token: boolean };
 
@@ -14,6 +15,7 @@ export default function AppRoutes() {
       <Route path="/" element={<Login auth={auth} setAuth={setAuth} />} />
       <Route element={<ProtectedRoutes auth={auth} />}>
         <Route path="/overview" element={<Overview />} />
+        <Route path="/tickets" element={<Tickets />} />
       </Route>
     </Routes>
   );
