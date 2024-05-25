@@ -3,6 +3,7 @@ import axios from "axios";
 import Topbar from "../../components/topbar/Topbar";
 import { Card, CardLong } from "../../components/card/Card";
 import Chart from "../../components/chart/Chart";
+import Task from "../../components/task/Task";
 
 type Unresolved = { unresolved: number; id: string };
 type Overdue = { overdue: number; id: string };
@@ -85,35 +86,7 @@ export default function Overview() {
               </div>
             </div>
           </div>
-          <div className="bg-white p-8 space-y-3 grow">
-            <div className="flex justify-between">
-              <div>
-                <h1 className="text-xl font-bold">Tasks</h1>
-                <p className="font-medium text-slate-400 text-xs">
-                  Today
-                </p>
-              </div>
-              <button className="text-blue-700">View all</button>
-            </div>
-            <div>
-              <div className="flex justify-between p-3 border-b-2 border-slate-200">
-                <p className="font-medium  text-slate-400">Create new task</p>
-                <button className="px-2 font-medium bg-slate-200 rounded-lg text-slate-400">+</button>
-              </div>
-              <div className="flex justify-between items-center p-3 border-b-2 border-slate-200">
-                <p className="font-medium">Finish Ticket Update</p>
-                <p className="text-xs py-1 px-3 rounded-lg bg-yellow-500 text-white">URGENT</p>
-              </div>
-              <div className="flex justify-between p-3 border-b-2 border-slate-200">
-                <p className="font-medium">Create new ticket example</p>
-                <p className="text-xs py-1 px-3 rounded-lg bg-green-500 text-white">NEW</p>
-              </div>
-              <div className="flex justify-between p-3 border-b-2 border-slate-200">
-                <p className="font-medium">Pending</p>
-                <p className="text-xs py-1 px-3 rounded-lg  bg-slate-200 text-slate-400">DEFAULT</p>
-              </div>
-            </div>
-          </div>
+          <Task />
         </div>
       </div>
     </div>
