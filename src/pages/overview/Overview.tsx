@@ -48,11 +48,11 @@ export default function Overview() {
               </div>
             </div>
             <div>
-              <CardLong title="resolved" total={449} />
-              <CardLong title="resolved" total={449} />
-              <CardLong title="resolved" total={449} />
-              <CardLong title="resolved" total={449} />
-              <CardLong title="resolved" total={449} />
+              <CardLong title="Resolved" total={449} />
+              <CardLong title="Received" total={426} />
+              <CardLong title="Average first response time" total="33m" />
+              <CardLong title="Average response time" total="3h 8m" />
+              <CardLong title="Resolution with SLA" total="94%" />
             </div>
           </div>
         </div>
