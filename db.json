@@ -1,20 +1,121 @@
 {
   "tickets": [
     {
-      "unresolved": 60,
-      "id": "b863"
+      "profilePict": "",
+      "ticketName": "Email not Linked",
+      "ticketUpdatedAt": "2024-05-25T06:00:00Z",
+      "customerName": "Tom Cruise",
+      "customerCreatedAt": "2019-05-24T00:00:00Z",
+      "ticketDate": "2019-05-26T06:30:00Z",
+      "ticketPriority": "high"
     },
     {
-      "overdue": 16,
-      "id": "ffde"
+      "profilePict": "",
+      "ticketName": "Adding Images to Featured Posts",
+      "ticketUpdatedAt": "2024-05-25T08:00:00Z",
+      "customerName": "Matt Damon",
+      "customerCreatedAt": "2019-05-24T00:00:00Z",
+      "ticketDate": "2019-05-26T08:00:00Z",
+      "ticketPriority": "low"
     },
     {
-      "open": 43,
-      "id": "d828"
+      "profilePict": "",
+      "ticketName": "When will i be charged this month?",
+      "ticketUpdatedAt": "2024-05-25T00:00:00Z",
+      "customerName": "Robert Downey",
+      "customerCreatedAt": "2019-05-24T00:00:00Z",
+      "ticketDate": "2019-05-26T07:30:00Z",
+      "ticketPriority": "normal"
     },
     {
-      "onHold": 64,
-      "id": "ce0b"
+      "profilePict": "https://example.com/profiles/tom.jpg",
+      "ticketName": "Issue with Login",
+      "ticketUpdatedAt": "2024-05-25T09:00:00Z",
+      "customerName": "Tom Hanks",
+      "customerCreatedAt": "2018-04-10T00:00:00Z",
+      "ticketDate": "2018-04-11T09:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/matt.jpg",
+      "ticketName": "Subscription Renewal Problem",
+      "ticketUpdatedAt": "2024-05-25T10:00:00Z",
+      "customerName": "Matt Smith",
+      "customerCreatedAt": "2019-06-12T00:00:00Z",
+      "ticketDate": "2019-06-13T10:00:00Z",
+      "ticketPriority": "normal"
+    },
+    {
+      "profilePict": "https://example.com/profiles/robert.jpg",
+      "ticketName": "Unable to Access Account",
+      "ticketUpdatedAt": "2024-05-25T11:00:00Z",
+      "customerName": "Robert Johnson",
+      "customerCreatedAt": "2020-01-15T00:00:00Z",
+      "ticketDate": "2020-01-16T11:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/emma.jpg",
+      "ticketName": "Bug in Payment Gateway",
+      "ticketUpdatedAt": "2024-05-25T12:00:00Z",
+      "customerName": "Emma Watson",
+      "customerCreatedAt": "2021-03-25T00:00:00Z",
+      "ticketDate": "2021-03-26T12:00:00Z",
+      "ticketPriority": "low"
+    },
+    {
+      "profilePict": "https://example.com/profiles/chris.jpg",
+      "ticketName": "Feature Request: Dark Mode",
+      "ticketUpdatedAt": "2024-05-25T13:00:00Z",
+      "customerName": "Chris Evans",
+      "customerCreatedAt": "2022-07-22T00:00:00Z",
+      "ticketDate": "2022-07-23T13:00:00Z",
+      "ticketPriority": "normal"
+    },
+    {
+      "profilePict": "https://example.com/profiles/scarlett.jpg",
+      "ticketName": "Data Synchronization Issue",
+      "ticketUpdatedAt": "2024-05-25T14:00:00Z",
+      "customerName": "Scarlett Johansson",
+      "customerCreatedAt": "2023-02-14T00:00:00Z",
+      "ticketDate": "2023-02-15T14:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/dwayne.jpg",
+      "ticketName": "Unable to Reset Password",
+      "ticketUpdatedAt": "2024-05-25T15:00:00Z",
+      "customerName": "Dwayne Johnson",
+      "customerCreatedAt": "2023-05-10T00:00:00Z",
+      "ticketDate": "2023-05-11T15:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/natalie.jpg",
+      "ticketName": "Error 404 on Profile Page",
+      "ticketUpdatedAt": "2024-05-25T16:00:00Z",
+      "customerName": "Natalie Portman",
+      "customerCreatedAt": "2023-08-08T00:00:00Z",
+      "ticketDate": "2023-08-09T16:00:00Z",
+      "ticketPriority": "normal"
+    },
+    {
+      "profilePict": "https://example.com/profiles/leo.jpg",
+      "ticketName": "Account Verification Problem",
+      "ticketUpdatedAt": "2024-05-25T17:00:00Z",
+      "customerName": "Leonardo DiCaprio",
+      "customerCreatedAt": "2024-01-01T00:00:00Z",
+      "ticketDate": "2024-01-02T17:00:00Z",
+      "ticketPriority": "low"
+    },
+    {
+      "profilePict": "https://example.com/profiles/jennifer.jpg",
+      "ticketName": "Feedback: App Performance",
+      "ticketUpdatedAt": "2024-05-25T18:00:00Z",
+      "customerName": "Jennifer Lawrence",
+      "customerCreatedAt": "2023-11-20T00:00:00Z",
+      "ticketDate": "2023-11-21T18:00:00Z",
+      "ticketPriority": "normal"
     }
   ],
   "tasks": [
