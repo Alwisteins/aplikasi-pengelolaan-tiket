@@ -116,6 +116,96 @@
       "customerCreatedAt": "2023-11-20T00:00:00Z",
       "ticketDate": "2023-11-21T18:00:00Z",
       "ticketPriority": "normal"
+    },
+    {
+      "profilePict": "https://example.com/profiles/benedict.jpg",
+      "ticketName": "Issue with Notification Settings",
+      "ticketUpdatedAt": "2024-05-25T19:00:00Z",
+      "customerName": "Benedict Cumberbatch",
+      "customerCreatedAt": "2020-05-20T00:00:00Z",
+      "ticketDate": "2020-05-21T19:00:00Z",
+      "ticketPriority": "normal"
+    },
+    {
+      "profilePict": "https://example.com/profiles/gal.jpg",
+      "ticketName": "Problem with Account Deactivation",
+      "ticketUpdatedAt": "2024-05-25T20:00:00Z",
+      "customerName": "Gal Gadot",
+      "customerCreatedAt": "2021-01-12T00:00:00Z",
+      "ticketDate": "2021-01-13T20:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/ryan.jpg",
+      "ticketName": "Error Submitting Feedback",
+      "ticketUpdatedAt": "2024-05-25T21:00:00Z",
+      "customerName": "Ryan Reynolds",
+      "customerCreatedAt": "2022-09-05T00:00:00Z",
+      "ticketDate": "2022-09-06T21:00:00Z",
+      "ticketPriority": "low"
+    },
+    {
+      "profilePict": "https://example.com/profiles/anne.jpg",
+      "ticketName": "Question About Billing Cycle",
+      "ticketUpdatedAt": "2024-05-25T22:00:00Z",
+      "customerName": "Anne Hathaway",
+      "customerCreatedAt": "2023-03-14T00:00:00Z",
+      "ticketDate": "2023-03-15T22:00:00Z",
+      "ticketPriority": "normal"
+    },
+    {
+      "profilePict": "https://example.com/profiles/chadwick.jpg",
+      "ticketName": "Cannot Download Invoices",
+      "ticketUpdatedAt": "2024-05-25T23:00:00Z",
+      "customerName": "Chadwick Boseman",
+      "customerCreatedAt": "2023-07-18T00:00:00Z",
+      "ticketDate": "2023-07-19T23:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/meryl.jpg",
+      "ticketName": "Incorrect Account Balance",
+      "ticketUpdatedAt": "2024-05-25T07:00:00Z",
+      "customerName": "Meryl Streep",
+      "customerCreatedAt": "2023-10-30T00:00:00Z",
+      "ticketDate": "2023-10-31T07:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/jackie.jpg",
+      "ticketName": "Unable to Update Profile",
+      "ticketUpdatedAt": "2024-05-25T05:00:00Z",
+      "customerName": "Jackie Chan",
+      "customerCreatedAt": "2022-12-01T00:00:00Z",
+      "ticketDate": "2022-12-02T05:00:00Z",
+      "ticketPriority": "low"
+    },
+    {
+      "profilePict": "https://example.com/profiles/morgan.jpg",
+      "ticketName": "Subscription Cancellation",
+      "ticketUpdatedAt": "2024-05-25T04:00:00Z",
+      "customerName": "Morgan Freeman",
+      "customerCreatedAt": "2021-11-22T00:00:00Z",
+      "ticketDate": "2021-11-23T04:00:00Z",
+      "ticketPriority": "normal"
+    },
+    {
+      "profilePict": "https://example.com/profiles/julia.jpg",
+      "ticketName": "Refund Request",
+      "ticketUpdatedAt": "2024-05-25T03:00:00Z",
+      "customerName": "Julia Roberts",
+      "customerCreatedAt": "2023-04-15T00:00:00Z",
+      "ticketDate": "2023-04-16T03:00:00Z",
+      "ticketPriority": "high"
+    },
+    {
+      "profilePict": "https://example.com/profiles/will.jpg",
+      "ticketName": "Cannot Access Premium Content",
+      "ticketUpdatedAt": "2024-05-25T02:00:00Z",
+      "customerName": "Will Smith",
+      "customerCreatedAt": "2021-08-09T00:00:00Z",
+      "ticketDate": "2021-08-10T02:00:00Z",
+      "ticketPriority": "low"
     }
   ],
   "tasks": [
