@@ -1,8 +1,28 @@
+import { useState } from "react";
 import { Tickets } from "../../pages/tickets/Tickets";
 
 const tableHead = ["Ticket details", "Customer name", "Date", "Priority"];
 
 export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const rowsPerPage = 8;
+  const lastIndex = currentPage * rowsPerPage;
+  const firstIndex = lastIndex - rowsPerPage;
+  const rows = tickets?.slice(firstIndex, lastIndex);
+  const totalPages = Math.ceil(tickets?.length / rowsPerPage);
+
+  const prevPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage !== totalPages) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
   const generateStyle = (priority: string): string => {
     if (priority == "high") {
       return `bg-red-400 text-white`;
@@ -36,8 +56,8 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
             </tr>
           </thead>
           <tbody>
-            {tickets &&
-              tickets.map((item, index) => (
+            {rows &&
+              rows.map((item, index) => (
                 <tr key={index} className="hover:bg-gray-100">
                   <td className=" px-4 py-3 border-b">
                     <div className="flex items-center space-x-5">
@@ -85,6 +105,22 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
             )}
           </tbody>
         </table>
+        <nav className="flex justify-end space-x-3 py-5 px-8">
+          <p className="text-sm text-slate-400">
+            rows per page: <span className="text-black">{rowsPerPage}</span>
+          </p>
+          <p className="text-sm text-slate-400">
+            {firstIndex + 1} - {lastIndex == 8 ? lastIndex : lastIndex - 1} of {tickets?.length}
+          </p>
+          <div className="flex space-x-5">
+            <button className=" text-slate-400" onClick={prevPage}>
+              prev
+            </button>
+            <button className=" text-slate-400" onClick={nextPage}>
+              next
+            </button>
+          </div>
+        </nav>
       </div>
     </div>
   );
