@@ -1,6 +1,7 @@
 import { useState, ChangeEvent } from "react";
 import { Tickets } from "../../pages/tickets/Tickets";
 import Pagination from "../../components/pagination/Pagination";
+import date from "../date/Date";
 
 const tableHead = ["Ticket details", "Customer name", "Date", "Priority"];
 
@@ -59,7 +60,7 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
                           {item.ticketName}
                         </h1>
                         <p className="text-xs text-slate-300">
-                          {item.ticketUpdatedAt}
+                          {date.formatDateDistance(item.ticketUpdatedAt)}
                         </p>
                       </div>
                     </div>
@@ -70,12 +71,15 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
                         {item.customerName}
                       </h1>
                       <p className="text-xs text-slate-300">
-                        {item.customerCreatedAt}
+                        {date.formatDateOn(item.customerCreatedAt)}
                       </p>
                     </div>
                   </td>
                   <td className="border-b px-4 text-sm font-medium">
-                    {item.ticketDate}
+                    {date.formatDateTicket(item.ticketDate)}
+                    <p className="text-xs text-slate-300">
+                      {date.formatTime(item.ticketDate)}
+                    </p>
                   </td>
                   <td className="border-b px-4">
                     <p
