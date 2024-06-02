@@ -2,6 +2,7 @@ import { useState, ChangeEvent } from "react";
 import { Tickets } from "../../pages/tickets/Tickets";
 import Pagination from "../../components/pagination/Pagination";
 import date from "../date/Date";
+import FilterModal from "../modal/FilterModal";
 
 const tableHead = ["Ticket details", "Customer name", "Date", "Priority"];
 
@@ -19,14 +20,28 @@ const generateStyle = (priority: string): string => {
 export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [rowsPerPage, setRowsPerPage] = useState<number>(8);
-  const lastIndex = currentPage * rowsPerPage;
-  const firstIndex = lastIndex - rowsPerPage;
-  const rows = tickets?.slice(firstIndex, lastIndex);
+  const [activePriority, setActivePriority] = useState<string | null>(null);
 
   const handleRowsPerPageChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setRowsPerPage(Number(event.target.value));
     setCurrentPage(1);
   };
+
+  const handleFilter = (priorityFilter: string | null) => {
+    setActivePriority(priorityFilter);
+    setCurrentPage(1);
+  };
+
+  let filteredTickets = tickets;
+
+  if (activePriority) {
+    filteredTickets =
+      tickets?.filter((item) => activePriority === item.ticketPriority) || null;
+  }
+
+  const lastIndex = currentPage * rowsPerPage;
+  const firstIndex = lastIndex - rowsPerPage;
+  const rows = filteredTickets?.slice(firstIndex, lastIndex);
 
   return (
     <div className="overflow-x-auto">
@@ -35,7 +50,10 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
           <h1 className="text-lg font-medium">All tickets</h1>
           <div className="space-x-3 text-sm font-medium">
             <button>Sort</button>
-            <button>Filter</button>
+            <FilterModal
+              onFilter={handleFilter}
+              activePriority={activePriority}
+            />
           </div>
         </header>
         <table className="w-full">
@@ -107,7 +125,7 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
         <Pagination
           currentPage={currentPage}
           rowsPerPage={rowsPerPage}
-          totalItems={tickets?.length || 0}
+          totalItems={filteredTickets?.length || 0}
           setCurrentPage={setCurrentPage}
           onChange={handleRowsPerPageChange}
         />
