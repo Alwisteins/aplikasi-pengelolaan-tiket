@@ -3,6 +3,7 @@ import { Tickets } from "../../pages/tickets/Tickets";
 import Pagination from "../../components/pagination/Pagination";
 import date from "../date/Date";
 import FilterModal from "../modal/FilterModal";
+import SortModal from "../modal/SortModal";
 
 const tableHead = ["Ticket details", "Customer name", "Date", "Priority"];
 
@@ -21,6 +22,11 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [rowsPerPage, setRowsPerPage] = useState<number>(8);
   const [activePriority, setActivePriority] = useState<string | null>(null);
+  const [sort, setSort] = useState({
+    name: null,
+    date: null,
+    priority: null,
+  });
 
   const handleRowsPerPageChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setRowsPerPage(Number(event.target.value));
@@ -32,6 +38,23 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
     setCurrentPage(1);
   };
 
+  const handleSort = (option: string, sortType: string) => {
+    handleResetSort();
+    setSort((prevSort) => ({
+      ...prevSort,
+      [sortType]: option,
+    }));
+     setCurrentPage(1);
+  };
+
+  const handleResetSort = () => {
+    setSort({
+      name: null,
+      date: null,
+      priority: null,
+    });
+  };
+
   let filteredTickets = tickets;
 
   if (activePriority) {
@@ -39,17 +62,43 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
       tickets?.filter((item) => activePriority === item.ticketPriority) || null;
   }
 
+  const sortenedTickets = [...(filteredTickets || [])].sort((a, b) => {
+    if (sort.name) {
+      return sort.name == "a-z"
+        ? a.ticketName.localeCompare(b.ticketName)
+        : b.ticketName.localeCompare(a.ticketName);
+    }
+    if (sort.date) {
+      return sort.date == "newest"
+        ? new Date(b.ticketDate).getTime() - new Date(a.ticketDate).getTime()
+        : new Date(a.ticketDate).getTime() - new Date(b.ticketDate).getTime();
+    }
+    if (sort.priority) {
+      const priorityOrder = ["low", "normal", "high"];
+      return sort.priority == "highest"
+        ? priorityOrder.indexOf(b.ticketPriority) -
+            priorityOrder.indexOf(a.ticketPriority)
+        : priorityOrder.indexOf(a.ticketPriority) -
+            priorityOrder.indexOf(b.ticketPriority);
+    }
+    return 0;
+  });
+
   const lastIndex = currentPage * rowsPerPage;
   const firstIndex = lastIndex - rowsPerPage;
-  const rows = filteredTickets?.slice(firstIndex, lastIndex);
+  const rows = sortenedTickets?.slice(firstIndex, lastIndex);
 
   return (
     <div className="overflow-x-auto">
       <div className="bg-white border border-gray-200 rounded-md">
         <header className="p-5 flex justify-between">
           <h1 className="text-lg font-medium">All tickets</h1>
-          <div className="space-x-3 text-sm font-medium">
-            <button>Sort</button>
+          <div className="flex justify-center space-x-5 text-slate-500 text-sm font-medium">
+            <SortModal
+              sortBy={sort}
+              onSort={handleSort}
+              onResetSort={handleResetSort}
+            />
             <FilterModal
               onFilter={handleFilter}
               activePriority={activePriority}
