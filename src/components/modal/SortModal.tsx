@@ -16,11 +16,8 @@ interface SortModalProps {
   };
 }
 
-export default function SortModal({
-  onResetSort,
-  onSort,
-  sortBy,
-}: SortModalProps) {
+export default function SortModal(props: SortModalProps) {
+  const { onResetSort, onSort, sortBy } = props;
   const [open, setOpen] = useState<boolean>(false);
 
   return (
