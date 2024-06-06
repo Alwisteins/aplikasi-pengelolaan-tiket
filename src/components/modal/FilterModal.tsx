@@ -1,14 +1,16 @@
 import { useState } from "react";
+import Button from "../button/Button";
+import OptionButton from "../button/OptionButton";
 
 const priorityFilter = ["high", "normal", "low"];
 
-export default function FilterModal({
-  onFilter,
-  activePriority
-}: {
+interface FilterModalProps {
   onFilter: (priorityFilter: string | null) => void;
   activePriority: string | null;
-}) {
+}
+
+export default function FilterModal(props: FilterModalProps) {
+  const { onFilter, activePriority } = props;
   const [open, setOpen] = useState<boolean>(false);
 
   const handleClose = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -33,28 +35,19 @@ export default function FilterModal({
             </h1>
             <div className="flex justify-center">
               {priorityFilter.map((name) => (
-                <button
-                  key={name}
-                  type="button"
-                  className={`${
-                    activePriority === name
-                      ? "bg-green-200 border-green-400"
-                      : "bg-slate-100 border-slate-300"
-                  } border py-1 px-4 mx-2 rounded-lg`}
-                  onClick={() => onFilter(name)}
-                >
-                  {name}
-                </button>
+                <OptionButton
+                  name={name}
+                  active={activePriority}
+                  onClick={onFilter}
+                />
               ))}
             </div>
             <div className="flex justify-center">
-              <button
+              <Button
                 type="button"
+                name="Reset filter"
                 onClick={() => onFilter(null)}
-                className="py-2 px-3 text-slate-200 rounded-lg bg-blue-700"
-              >
-                Reset Filter
-              </button>
+              />
             </div>
           </form>
         </div>

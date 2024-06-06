@@ -1,4 +1,6 @@
 import { useState } from "react";
+import Button from "../button/Button";
+import OptionButton from "../button/OptionButton";
 
 const sortOptions = {
   name: ["a-z", "z-a"],
@@ -38,31 +40,18 @@ export default function SortModal(props: SortModalProps) {
                   <h1 className="text-center">sort by {sortType}</h1>
                   <div className="flex space-x-2 justify-between">
                     {options.map((option) => (
-                      <button
-                        type="button"
-                        key={option}
-                        className={`${
-                          sortBy[sortType as keyof typeof sortBy] === option
-                            ? "bg-green-200 border-green-400"
-                            : "bg-slate-100 border-slate-300"
-                        }  px-4 py-1 rounded-lg border`}
+                      <OptionButton
+                        name={option}
+                        active={sortBy[sortType as keyof typeof sortBy]}
                         onClick={() => onSort(option, sortType)}
-                      >
-                        {option}
-                      </button>
+                      />
                     ))}
                   </div>
                 </div>
               ))}
             </div>
             <div className="flex justify-center">
-              <button
-                type="button"
-                className="px-3 py-2 text-slate-200 rounded-lg bg-blue-700"
-                onClick={onResetSort}
-              >
-                Reset filter
-              </button>
+              <Button type="button" name="Reset sort" onClick={onResetSort} />
             </div>
           </form>
         </div>

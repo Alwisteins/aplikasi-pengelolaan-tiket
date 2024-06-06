@@ -4,6 +4,7 @@ import { eyeOff } from "react-icons-kit/feather/eyeOff";
 import { eye } from "react-icons-kit/feather/eye";
 import { users } from "../../data/data";
 import { Role } from "../../pages/login/Login";
+import Button from "../button/Button";
 
 interface FormProps {
   onLogin: (token: boolean) => void;
@@ -98,12 +99,9 @@ export default function Form({ onLogin, setRole }: FormProps) {
           </span>
           {error && <p className="text-red-500 text-center text-xs">{error}</p>}
         </div>
-        <button
-          type="submit"
-          className="w-full p-2 rounded-md bg-blue-700 text-white"
-        >
-          Login
-        </button>
+        <div className="flex justify-center">
+          <Button type="submit" name="Login" />
+        </div>
       </form>
     </div>
   );
