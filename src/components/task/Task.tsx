@@ -1,52 +1,12 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useTasks } from "../../hooks/useTasks";
+import { useState } from "react";
 import TaskModal from "../modal/TaskModal";
-
-export type Task = { name: string; status: "string"; isFinish: boolean };
-type Tasks = Task[];
-
-export interface NewTask {
-  name: string;
-  status: string;
-  isFinish: boolean;
-}
-
-// eslint-disable-next-line react-refresh/only-export-components
-export const generateStyle = (taskStatus: string): string => {
-  if (taskStatus == "urgent") {
-    return `bg-yellow-500 text-white`;
-  } else if (taskStatus == "new") {
-    return `bg-green-500 text-white`;
-  } else {
-    return `bg-slate-200 text-slate-400`;
-  }
-};
+import taskStatusStyle from "../../utils/taskStatusStyle";
+import type { Task } from "../../types/task";
 
 export default function Task() {
-  const [tasks, setTasks] = useState<Tasks | null>(null);
+  const { tasks, addNewTask } = useTasks();
   const [open, setOpen] = useState<boolean>(false);
-  const [newTask, setNewTask] = useState<NewTask | null>(null);
-  const url = "http://localhost:3000/tasks";
-
-  const fetchTasks = () => {
-    axios.get(url).then((response) => {
-      setTasks(response.data);
-    });
-  };
-
-  useEffect(() => {
-    fetchTasks();
-  }, [newTask]);
-
-  useEffect(() => {
-    if (newTask) {
-      axios.post(url, newTask).then((response) => {
-        console.log(response.data);
-        setNewTask(null);
-        fetchTasks();
-      });
-    }
-  }, [newTask]);
 
   return (
     <div className="bg-white p-8 space-y-3 grow">
@@ -66,7 +26,7 @@ export default function Task() {
           >
             +
           </button>
-          <TaskModal open={open} setOpen={setOpen} setNewTask={setNewTask} />
+          <TaskModal open={open} setOpen={setOpen} addNewTask={addNewTask} />
         </div>
         {tasks &&
           tasks.map((task) => (
@@ -76,7 +36,7 @@ export default function Task() {
             >
               <p className="font-medium">{task.name}</p>
               <p
-                className={`${generateStyle(
+                className={`${taskStatusStyle(
                   task.status
                 )} text-xs py-1 px-3 rounded-lg`}
               >
