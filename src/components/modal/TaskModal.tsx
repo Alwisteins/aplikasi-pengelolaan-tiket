@@ -4,7 +4,7 @@ import type { Task } from "../../types/task";
 interface TaskModalProps {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  addNewTask: (task: Task) => Promise<void>
+  addNewTask: (task: Task) => Promise<void>;
 }
 
 const TaskModal: FC<TaskModalProps> = ({ open, setOpen, addNewTask }) => {
@@ -13,8 +13,7 @@ const TaskModal: FC<TaskModalProps> = ({ open, setOpen, addNewTask }) => {
     const form = event.target as HTMLFormElement;
     const name = form.name.value;
     const status = form.status.value;
-    const isFinish = form.isFinish.checked;
-    addNewTask({ name, status, isFinish });
+    addNewTask({ name, status, isFinish: false });
     setOpen(false);
   };
 
@@ -22,9 +21,16 @@ const TaskModal: FC<TaskModalProps> = ({ open, setOpen, addNewTask }) => {
 
   return (
     <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-      <div className="p-6 rounded-lg bg-white">
-        <h2 className="text-center text-md font-semibold">Create New Task</h2>
+      <div className="relative p-6 space-y-5 rounded-lg bg-white">
+        <button
+          type="button"
+          className="font-bold text-xl absolute top-5 right-5"
+          onClick={() => setOpen(false)}
+        >
+          x
+        </button>
         <form onSubmit={handleSubmit}>
+          <h2 className="text-center text-md mb-4 font-semibold">Create New Task</h2>
           <div className="mb-4">
             <label className="block text-sm font-medium text-gray-700">
               Name
@@ -47,23 +53,10 @@ const TaskModal: FC<TaskModalProps> = ({ open, setOpen, addNewTask }) => {
               />
             </label>
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Is Finish
-              <input type="checkbox" name="isFinish" className="mt-1 block" />
-            </label>
-          </div>
-          <div className="flex justify-end space-x-2">
-            <button
-              type="button"
-              onClick={() => setOpen(false)}
-              className="bg-gray-300 text-gray-700 px-4 py-2 rounded-md"
-            >
-              Close
-            </button>
+          <div className="flex justify-center space-x-2">
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md"
+              className="px-3 py-2 text-slate-200 rounded-lg bg-blue-700"
             >
               Add
             </button>
