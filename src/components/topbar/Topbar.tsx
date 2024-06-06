@@ -1,4 +1,4 @@
-import { search } from "react-icons-kit/fa/search";
+import SearchModal from '../modal/SearchModal';
 import { bell } from "react-icons-kit/feather/bell";
 import { Icon } from "react-icons-kit";
 
@@ -8,10 +8,7 @@ export default function Topbar({ page }: { page: string }) {
       <h1 className="text-2xl font-semibold text-black/80">{page}</h1>
       <div className="flex items-center space-x-7">
         <div className="flex items-center space-x-5">
-          <Icon
-            icon={search}
-            className="text-slate-500"
-          />
+          <SearchModal />
           <Icon
             icon={bell}
             className="text-slate-500"

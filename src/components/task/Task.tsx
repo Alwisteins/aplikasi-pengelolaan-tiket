@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import TaskModal from "../modal/TaskModal";
 
-type Task = { name: string; status: "string"; isFinish: boolean };
+export type Task = { name: string; status: "string"; isFinish: boolean };
 type Tasks = Task[];
 
 export interface NewTask {
@@ -11,21 +11,22 @@ export interface NewTask {
   isFinish: boolean;
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
+export const generateStyle = (taskStatus: string): string => {
+  if (taskStatus == "urgent") {
+    return `bg-yellow-500 text-white`;
+  } else if (taskStatus == "new") {
+    return `bg-green-500 text-white`;
+  } else {
+    return `bg-slate-200 text-slate-400`;
+  }
+};
+
 export default function Task() {
   const [tasks, setTasks] = useState<Tasks | null>(null);
   const [open, setOpen] = useState<boolean>(false);
   const [newTask, setNewTask] = useState<NewTask | null>(null);
   const url = "http://localhost:3000/tasks";
-
-  const generateStyle = (taskStatus: string): string => {
-    if (taskStatus == "urgent") {
-      return `bg-yellow-500 text-white`;
-    } else if (taskStatus == "new") {
-      return `bg-green-500 text-white`;
-    } else {
-      return `bg-slate-200 text-slate-400`;
-    }
-  };
 
   const fetchTasks = () => {
     axios.get(url).then((response) => {
