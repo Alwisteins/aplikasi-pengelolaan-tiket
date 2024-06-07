@@ -1,7 +1,7 @@
 import { useState, ChangeEvent } from "react";
 import { Tickets } from "../../pages/tickets/Tickets";
 import Pagination from "../../components/pagination/Pagination";
-import date from "../date/Date";
+import date from "../../utils/date";
 import FilterModal from "../modal/FilterModal";
 import SortModal from "../modal/SortModal";
 
