@@ -18,7 +18,12 @@ const generateStyle = (priority: string): string => {
   }
 };
 
-export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
+interface TicketTableProps {
+  tickets: Tickets | null;
+}
+
+export default function TicketTable(props: TicketTableProps) {
+  const { tickets } = props;
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [rowsPerPage, setRowsPerPage] = useState<number>(8);
   const [activePriority, setActivePriority] = useState<string | null>(null);
@@ -44,7 +49,7 @@ export default function TicketTable({ tickets }: { tickets: Tickets | null }) {
       ...prevSort,
       [sortType]: option,
     }));
-     setCurrentPage(1);
+    setCurrentPage(1);
   };
 
   const handleResetSort = () => {

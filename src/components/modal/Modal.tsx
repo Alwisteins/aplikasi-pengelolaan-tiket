@@ -7,7 +7,8 @@ interface ModalProps {
 }
 
 
-export default function Modal({onLogin, setRole}: ModalProps) {
+export default function Modal(props: ModalProps) {
+  const {onLogin, setRole} = props;
   return (
     <div>
       <div className="fixed inset-0 bg-zinc-800 flex items-center justify-center">

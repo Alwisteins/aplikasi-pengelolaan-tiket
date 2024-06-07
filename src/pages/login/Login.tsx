@@ -9,7 +9,8 @@ interface AuthProps {
 
 export type Role = 'guest' | 'admin';
 
-export default function Login({ auth, setAuth }: AuthProps) {
+export default function Login(props: AuthProps) {
+  const { auth, setAuth } = props
   const [role, setRole] = useState<Role>('guest');
   const handleLogin = (token: boolean) => setAuth({ token });
 
