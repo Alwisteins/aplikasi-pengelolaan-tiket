@@ -1,29 +1,12 @@
 import Topbar from "../../components/topbar/Topbar";
-import { Card, CardLong } from "../../components/card/Card";
+import Card from "../../components/card/Card";
 import Chart from "../../components/chart/Chart";
 import Task from "../../components/task/Task";
-
-const cardData = [
-  { title: "Unresolved", total: 60 },
-  { title: "Overdue", total: 16 },
-  { title: "Open", total: 43 },
-  { title: "On hold", total: 64 },
-];
-
-const cardLongData = [
-  { title: "Resolved", total: 449 },
-  { title: "Received", total: 426 },
-  { title: "Average first response time", total: "33m" },
-  { title: "Average response time", total: "3h 8m" },
-  { title: "Resolution with SLA", total: "94%" },
-];
-
-const unresolvedTicketsData = [
-  { title: "Waiting on Feature Request", total: 4238 },
-  { title: "Awaiting Customers Response", total: 1005 },
-  { title: "Awaiting Developer Fix", total: 914 },
-  { title: "Pending", total: 281 },
-];
+import {
+  topCardData,
+  sideCardData,
+  unresolvedTicketsData,
+} from "../../data/OverviewData";
 
 export default function Overview() {
   return (
@@ -31,8 +14,12 @@ export default function Overview() {
       <Topbar page="Overview" />
       <div className="space-y-5">
         <div className="flex justify-center space-x-14">
-          {cardData.map((data) => (
-            <Card title={data.title} total={data.total} />
+          {topCardData.map((data) => (
+            <Card
+              title={data.title}
+              total={data.total}
+              AdditionalStyle="w-60 h-32"
+            />
           ))}
         </div>
         <div>
@@ -49,8 +36,12 @@ export default function Overview() {
               </div>
             </div>
             <div>
-              {cardLongData.map((data) => (
-                <CardLong title={data.title} total={data.total} />
+              {sideCardData.map((data) => (
+                <Card
+                  title={data.title}
+                  total={data.total}
+                  AdditionalStyle="w-72 py-5"
+                />
               ))}
             </div>
           </div>
