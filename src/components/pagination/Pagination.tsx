@@ -1,4 +1,5 @@
 import { ChangeEvent } from "react";
+import NavButton from '../button/NavButton'
 
 interface PaginationProps {
   currentPage: number;
@@ -42,20 +43,8 @@ export default function Pagination(props: PaginationProps) {
         {firstIndex}-{lastIndex} of {totalItems}
       </p>
       <div className="flex space-x-5">
-        <button
-          className="text-slate-400"
-          onClick={prevPage}
-          disabled={currentPage === 1}
-        >
-          prev
-        </button>
-        <button
-          className="text-slate-400"
-          onClick={nextPage}
-          disabled={currentPage === totalPages}
-        >
-          next
-        </button>
+        <NavButton name="prev" onClick={prevPage} disabled={currentPage === 1} />
+        <NavButton name="next" onClick={nextPage} disabled={currentPage === totalPages} />
       </div>
     </nav>
   );
