@@ -1,4 +1,4 @@
-import { Tickets } from "../../pages/tickets/Tickets";
+import { Tickets } from "../../hooks/useTickets";
 import { useSortAndFilter } from "../../hooks/useSortAndFilter";
 import TableHeader from "./TableHeader";
 import TableHead from "./TableHead";

@@ -1,4 +1,4 @@
-import { Tickets } from "../../pages/tickets/Tickets";
+import { Tickets } from "../../hooks/useTickets";
 import TableRow from "./TableRow";
 
 interface TableBodyProps {

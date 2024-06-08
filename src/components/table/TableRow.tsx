@@ -1,6 +1,6 @@
 import date from "../../utils/date";
 import ticketPriorityStyle from "../../utils/ticketPriorityStyle";
-import { Ticket } from "../../pages/tickets/Tickets";
+import { Ticket } from "../../hooks/useTickets";
 
 interface TableRowProps {
   item: Ticket;
