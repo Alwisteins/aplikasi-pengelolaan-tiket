@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Topbar from "../../components/topbar/Topbar";
 import TicketTable from "../../components/table/Table";
 
-interface Ticket {
+export interface Ticket {
   profilePict: string;
   ticketName: string;
   ticketUpdatedAt: string;
